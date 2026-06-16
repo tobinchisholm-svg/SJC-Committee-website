@@ -959,3 +959,111 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* =====================
+   CLOSET PAGE
+===================== */
+.closet-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: center;
+}
+
+.closet-intro-text p {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.closet-intro-image img {
+    width: 100%;
+    border: 3px solid var(--gold);
+}
+
+.closet-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.closet-info-card {
+    background-color: var(--white);
+    border-top: 4px solid var(--gold);
+    padding: 2rem;
+    text-align: center;
+}
+
+.closet-info-card h3 {
+    color: var(--burgundy);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.closet-hours {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--burgundy);
+    margin-bottom: 0.25rem;
+}
+
+.closet-hours-time {
+    font-size: 1.5rem;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.closet-items {
+    list-style: none;
+    padding: 0;
+}
+
+.closet-items li {
+    padding: 0.4rem 0;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--cream);
+    font-size: 0.95rem;
+}
+
+.closet-items li:last-child {
+    border-bottom: none;
+}
+
+.closet-info-card p {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.closet-donate {
+    background-color: var(--warm-white);
+    border: 2px solid var(--gold);
+    padding: 2rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.closet-donate h3 {
+    color: var(--burgundy);
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.closet-donate p {
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+    .closet-intro-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .closet-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
