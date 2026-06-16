@@ -8,14 +8,14 @@
 }
 
 :root {
-    --burgundy: #6b1a2a;
-    --burgundy-dark: #4a0e1a;
-    --gold: #d4a43a;
-    --gold-light: #e8c050;
-    --warm-white: #fff8f0;
-    --cream: #f5ece8;
-    --text-dark: #2a0a12;
-    --text-mid: #6b3a3a;
+    --burgundy: #1a3a5c;
+    --burgundy-dark: #0f2540;
+    --gold: #c9a227;
+    --gold-light: #f0c030;
+    --warm-white: #f5f0e8;
+    --cream: #e8e0d0;
+    --text-dark: #0a1a2a;
+    --text-mid: #3a5070;
     --white: #ffffff;
 }
 
