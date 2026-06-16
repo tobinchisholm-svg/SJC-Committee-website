@@ -824,3 +824,52 @@ footer {
     font-size: 1.1rem;
     color: var(--cream);
 }
+
+/* =====================
+   HISTORY PAGE
+===================== */
+.history-quote {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.history-section {
+    margin-bottom: 4rem;
+}
+
+.history-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.history-text p {
+    margin-bottom: 1.25rem;
+}
+
+.history-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.history-image-card img {
+    width: 100%;
+    border: 3px solid var(--gold);
+}
+
+.image-caption {
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+@media (min-width: 768px) {
+    .history-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
