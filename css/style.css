@@ -1287,3 +1287,93 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* =====================
+   SACRAMENTS PAGE
+===================== */
+.sacraments-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+.sacrament-card {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    align-items: start;
+}
+
+.sacrament-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    color: var(--burgundy-dark);
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sacrament-number-dark {
+    background-color: var(--burgundy);
+    color: var(--warm-white);
+}
+
+.sacrament-content h3 {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.sacrament-title-dark {
+    color: var(--burgundy) !important;
+}
+
+.sacrament-content p {
+    color: var(--warm-white);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.sacrament-text-dark {
+    color: var(--text-dark) !important;
+}
+
+.sacrament-info-box {
+    background-color: rgba(255,255,255,0.08);
+    border-left: 4px solid var(--gold);
+    padding: 1.25rem;
+    margin-top: 1rem;
+}
+
+.sacrament-info-box-dark {
+    background-color: var(--cream);
+    border-left: 4px solid var(--burgundy);
+}
+
+.sacrament-info-box h4 {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.sacrament-info-box p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.sacrament-info-box-dark h4 {
+    color: var(--burgundy);
+}
+
+.sacrament-info-box-dark p {
+    color: var(--text-dark) !important;
+}
