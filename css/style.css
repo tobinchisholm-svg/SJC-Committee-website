@@ -1730,6 +1730,17 @@ footer {
    NAV HOME ICON
 ===================== */
 .nav-home-icon {
-    font-size: 1.4rem;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    color: var(--warm-white);
+    transition: color 0.2s;
+}
+
+.nav-home-icon:hover {
+    color: var(--gold);
+}
+
+.nav-home-icon svg {
+    width: 24px;
+    height: 24px;
 }
