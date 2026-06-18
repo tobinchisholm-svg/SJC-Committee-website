@@ -1067,3 +1067,160 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* =====================
+   CWL PAGE
+===================== */
+.cwl-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.cwl-intro-text p {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.cwl-intro-image img {
+    width: 100%;
+    border: 3px solid var(--gold);
+}
+
+.cwl-activities-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.cwl-activity-card {
+    background-color: rgba(255,255,255,0.05);
+    border-left: 4px solid var(--gold);
+    padding: 1.25rem 1.5rem;
+}
+
+.cwl-activity-card h3 {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.cwl-activity-card p {
+    color: var(--warm-white);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.cwl-photos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.cwl-photo-card img {
+    width: 100%;
+    border: 3px solid var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.cwl-group-photo {
+    text-align: center;
+}
+
+.cwl-group-photo img {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--gold);
+}
+
+.cwl-group-caption {
+    color: var(--warm-white);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cwl-executive-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cwl-executive-card {
+    background-color: var(--white);
+    border-top: 4px solid var(--gold);
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.cwl-exec-role {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+}
+
+.cwl-exec-name {
+    color: var(--burgundy);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.cwl-join {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cwl-join img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--gold);
+}
+
+.cwl-join h2 {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.cwl-join p {
+    color: var(--warm-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+    .cwl-intro-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cwl-activities-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cwl-photos-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cwl-executive-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .cwl-activities-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
