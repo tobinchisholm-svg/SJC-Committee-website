@@ -1850,3 +1850,17 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* =====================
+   MINISTRY PHOTO
+===================== */
+.ministry-photo {
+    margin-bottom: 1.5rem;
+}
+
+.ministry-photo img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border: 3px solid var(--gold);
+}

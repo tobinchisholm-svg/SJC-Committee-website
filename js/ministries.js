@@ -1,3 +1,9 @@
+const IMAGES = {
+    choir: 'images/choir.png',
+};
+
+document.getElementById('img-choir').src = IMAGES.choir;
+
 const hamburger      = document.getElementById('hamburger');
 const sidebar        = document.getElementById('sidebar');
 const sidebarOverlay = document.getElementById('sidebar-overlay');

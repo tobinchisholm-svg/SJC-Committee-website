@@ -15,4 +15,4 @@ Church interior photo
 Any remaining committee or group photos
 Nancy's Facebook page link for Faith Formation
 KOC meeting time and location
-Aby's response about any photos or content she was sent for the original website
+
