@@ -2,7 +2,6 @@
 // IMAGE PATHS — change filenames here only
 // =============================================
 const IMAGES = {
-    heroBg:       'images/hero-bg.png',
     pastor:       'images/pastor.png',
     deacon:       'images/deacon.png',
     announcement: 'images/announcement1.png',
@@ -11,10 +10,25 @@ const IMAGES = {
 // =============================================
 // APPLY IMAGES
 // =============================================
-document.querySelector('.hero').style.backgroundImage = `url('${IMAGES.heroBg}')`;
 document.getElementById('img-pastor').src       = IMAGES.pastor;
 document.getElementById('img-deacon').src       = IMAGES.deacon;
 document.getElementById('img-announcement').src = IMAGES.announcement;
+
+// =============================================
+// HERO VIDEO - SLOW DOWN AND PAUSE AT END
+// =============================================
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+    heroVideo.playbackRate = 0.75;
+    heroVideo.loop = false;
+
+    heroVideo.addEventListener('ended', () => {
+        setTimeout(() => {
+            heroVideo.currentTime = 0;
+            heroVideo.play();
+        }, 1500);
+    });
+}
 
 // =============================================
 // HAMBURGER + SIDEBAR
