@@ -2,13 +2,15 @@
 // IMAGE PATHS
 // =============================================
 const IMAGES = {
-    oldChurch:   'images/old-church.png',
+    oldChurch:  'images/old-church.png',
+    stTeresas:  'images/st-teresas-school.jpg',
 };
 
 // =============================================
 // APPLY IMAGES
 // =============================================
-document.getElementById('img-old-church').src   = IMAGES.oldChurch;
+document.getElementById('img-old-church').src  = IMAGES.oldChurch;
+document.getElementById('img-st-teresas').src  = IMAGES.stTeresas;
 
 // =============================================
 // HAMBURGER + SIDEBAR
