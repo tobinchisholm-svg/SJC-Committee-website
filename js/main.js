@@ -34,8 +34,10 @@ if (heroVideo) {
 // GALLERY CAROUSEL
 // =============================================
 const GALLERY = [
-    // Add photos here in this format:
-    // { src: 'gallery-photos/your-photo.jpg', caption: 'Your caption here' },
+    { src: 'gallery-photos/inside-church-2.jpg', caption: 'Inside St. Joseph\'s Church' },
+    { src: 'gallery-photos/inside-the-church.jpg', caption: 'Inside St. Joseph\'s Church' },
+    { src: 'gallery-photos/international-potluck-dinner.jpg', caption: 'International Potluck Dinner' },
+    { src: 'gallery-photos/live-stream.jpg', caption: 'Live Stream' },
 ];
 
 if (GALLERY.length > 0) {
