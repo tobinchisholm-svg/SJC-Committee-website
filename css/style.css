@@ -2150,3 +2150,27 @@ footer {
 .footer-diocese a:hover {
     text-decoration: underline;
 }
+
+/* =============================================
+   HISTORY — PHOTOS GRID & SINGLE PHOTO
+   ============================================= */
+
+.history-photos-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.history-photos-grid .history-photo {
+    flex: 1 1 400px;
+    max-width: 580px;
+}
+
+.history-photos-grid .history-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
