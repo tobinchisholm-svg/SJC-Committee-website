@@ -2612,6 +2612,7 @@ footer {
     border-radius: 4px;
     display: block;
     margin-bottom: 1rem;
+    object-fit: contain;
 }
 
 .announcement-pdf {
