@@ -42,6 +42,8 @@ collections:
     label: "Parish Gallery"
     folder: "gallery"
     create: true
+    media_folder: "/gallery-photos"
+    public_folder: "/gallery-photos"
     fields:
       - { label: "Caption", name: "title", widget: "string" }
       - { label: "Photo", name: "image", widget: "image" }
