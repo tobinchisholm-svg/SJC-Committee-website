@@ -6,7 +6,10 @@ async function loadLatestBulletin() {
 
     try {
         const res = await fetch('https://api.github.com/repos/SJC-Website-Database-Development/SJC-Committee-website/contents/bulletins');
-        if (!res.ok) throw new Error('Could not load bulletins');
+        if (!res.ok) {
+            container.innerHTML = '<p class="media-placeholder-text">No bulletins available yet. Check back soon.</p>';
+            return;
+        }
         const files = await res.json();
 
         const mdFiles = files
@@ -72,35 +75,37 @@ let currentMonth;
 async function loadCalendarEvents() {
     try {
         const res = await fetch('https://api.github.com/repos/SJC-Website-Database-Development/SJC-Committee-website/contents/events');
-        if (!res.ok) return;
-        const files = await res.json();
 
-        const mdFiles = files.filter(f => f.name.endsWith('.md'));
+        if (res.ok) {
+            const files = await res.json();
+            const mdFiles = files.filter(f => f.name.endsWith('.md'));
 
-        const eventPromises = mdFiles.map(async f => {
-            const r    = await fetch(f.download_url);
-            const text = await r.text();
+            const eventPromises = mdFiles.map(async f => {
+                const r    = await fetch(f.download_url);
+                const text = await r.text();
 
-            const titleMatch  = text.match(/title:\s*"?(.+?)"?\s*$/m);
-            const dateMatch   = text.match(/date:\s*(.+)/);
-            const bodyMatch   = text.match(/---[\s\S]*?---\s*([\s\S]*)/);
+                const titleMatch  = text.match(/title:\s*"?(.+?)"?\s*$/m);
+                const dateMatch   = text.match(/date:\s*(.+)/);
+                const bodyMatch   = text.match(/---[\s\S]*?---\s*([\s\S]*)/);
 
-            if (!titleMatch || !dateMatch) return null;
+                if (!titleMatch || !dateMatch) return null;
 
-            return {
-                title: titleMatch[1].trim(),
-                date:  new Date(dateMatch[1].trim()),
-                body:  bodyMatch ? bodyMatch[1].trim() : ''
-            };
-        });
+                return {
+                    title: titleMatch[1].trim(),
+                    date:  new Date(dateMatch[1].trim()),
+                    body:  bodyMatch ? bodyMatch[1].trim() : ''
+                };
+            });
 
-        const results = await Promise.all(eventPromises);
-        calendarEvents = results.filter(Boolean);
-        renderCalendar();
+            const results = await Promise.all(eventPromises);
+            calendarEvents = results.filter(Boolean);
+        }
 
     } catch (err) {
         console.error('Calendar load error:', err);
     }
+
+    renderCalendar();
 }
 
 function renderCalendar() {
@@ -112,13 +117,12 @@ function renderCalendar() {
 
     title.textContent = `${monthNames[currentMonth]} ${currentYear}`;
 
-    const firstDay  = new Date(currentYear, currentMonth, 1).getDay();
+    const firstDay    = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
     const dayHeaders = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     let html = dayHeaders.map(d => `<div class="cal-header">${d}</div>`).join('');
 
-    // Empty cells before first day
     for (let i = 0; i < firstDay; i++) {
         html += `<div class="cal-cell cal-empty"></div>`;
     }
@@ -152,7 +156,6 @@ function renderCalendar() {
 
     grid.innerHTML = html;
 
-    // Click handlers
     grid.querySelectorAll('.cal-has-events').forEach(cell => {
         cell.addEventListener('click', () => {
             const events  = JSON.parse(cell.dataset.events);
