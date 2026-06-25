@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Joseph Parish — Admin</title>
     <style>
+        /* ── Help Panel ── */
         #cms-help-panel {
             position: fixed;
             top: 58px;
@@ -49,7 +50,54 @@
             right: 260px;
         }
 
-        #cms-help-panel h2 {
+        /* ── Tips Panel ── */
+        #cms-tips-panel {
+            position: fixed;
+            top: 58px;
+            right: -260px;
+            width: 260px;
+            max-height: calc(100vh - 58px);
+            overflow-y: auto;
+            background: #0f2540;
+            color: #e8e0d0;
+            padding: 1.5rem;
+            font-family: Georgia, serif;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            z-index: 9998;
+            box-shadow: -2px 0 12px rgba(0,0,0,0.3);
+            transition: right 0.3s ease;
+        }
+
+        #cms-tips-panel.visible {
+            right: 0;
+        }
+
+        #cms-tips-toggle {
+            position: fixed;
+            top: 220px;
+            right: 0;
+            background: #0f2540;
+            color: #c9a227;
+            border: none;
+            padding: 0.6rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-family: Georgia, serif;
+            z-index: 10000;
+            border-radius: 4px 0 0 4px;
+            writing-mode: vertical-rl;
+            letter-spacing: 0.05em;
+            transition: right 0.3s ease;
+        }
+
+        #cms-tips-toggle.open {
+            right: 260px;
+        }
+
+        /* ── Shared styles ── */
+        #cms-help-panel h2,
+        #cms-tips-panel h2 {
             color: #c9a227;
             font-size: 1rem;
             margin-bottom: 1.25rem;
@@ -57,7 +105,8 @@
             border-bottom: 1px solid rgba(201,162,39,0.4);
         }
 
-        #cms-help-panel h3 {
+        #cms-help-panel h3,
+        #cms-tips-panel h3 {
             color: #c9a227;
             font-size: 0.85rem;
             margin: 1.1rem 0 0.4rem;
@@ -65,13 +114,15 @@
             letter-spacing: 0.05em;
         }
 
-        #cms-help-panel p {
+        #cms-help-panel p,
+        #cms-tips-panel p {
             margin: 0 0 0.75rem;
             color: #e8e0d0;
             opacity: 0.9;
         }
 
-        #cms-help-panel .help-divider {
+        #cms-help-panel .help-divider,
+        #cms-tips-panel .help-divider {
             border: none;
             border-top: 1px solid rgba(255,255,255,0.1);
             margin: 1rem 0;
@@ -81,11 +132,29 @@
 <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
+    <!-- Help Guide Toggle -->
     <button id="cms-help-toggle" onclick="
-        document.getElementById('cms-help-panel').classList.toggle('visible');
+        const panel = document.getElementById('cms-help-panel');
+        const tips = document.getElementById('cms-tips-panel');
+        const tipsBtn = document.getElementById('cms-tips-toggle');
+        panel.classList.toggle('visible');
         this.classList.toggle('open');
+        tips.classList.remove('visible');
+        tipsBtn.classList.remove('open');
     ">Help Guide</button>
 
+    <!-- Tips Toggle -->
+    <button id="cms-tips-toggle" onclick="
+        const panel = document.getElementById('cms-tips-panel');
+        const help = document.getElementById('cms-help-panel');
+        const helpBtn = document.getElementById('cms-help-toggle');
+        panel.classList.toggle('visible');
+        this.classList.toggle('open');
+        help.classList.remove('visible');
+        helpBtn.classList.remove('open');
+    ">Tips & Help</button>
+
+    <!-- Help Guide Panel -->
     <div id="cms-help-panel">
         <h2>📋 Admin Help Guide</h2>
 
@@ -106,6 +175,33 @@
 
         <h3>Parish Gallery</h3>
         <p>Upload photos to the homepage photo gallery. Add a caption and upload the photo. Click Publish and it will appear in the gallery carousel on the homepage.</p>
+
+        <hr class="help-divider">
+
+        <p style="font-size:0.8rem; opacity:0.6; margin-top:1rem;">For technical support contact Tobin.</p>
+    </div>
+
+    <!-- Tips & Troubleshooting Panel -->
+    <div id="cms-tips-panel">
+        <h2>💡 Tips & Troubleshooting</h2>
+
+        <h3>Editing an Entry</h3>
+        <p>To edit something already published, just click on it in the list, make your changes, and hit Publish again. It will update on the website automatically.</p>
+
+        <hr class="help-divider">
+
+        <h3>Deleting an Entry</h3>
+        <p>Open the entry you want to remove, click the arrow next to the Publish button, and select Delete. The item will be removed from the website within 30–60 seconds.</p>
+
+        <hr class="help-divider">
+
+        <h3>Something Not Showing Up?</h3>
+        <p>After clicking Publish, wait 30–60 seconds for the website to update. If it still doesn't appear, try refreshing the page. If the problem continues, contact Tobin.</p>
+
+        <hr class="help-divider">
+
+        <h3>Deleting Calendar Events</h3>
+        <p>After deleting a calendar event, the dot will disappear from the website automatically. If the calendar disappears entirely, it will come back on its own within a minute.</p>
 
         <hr class="help-divider">
 
