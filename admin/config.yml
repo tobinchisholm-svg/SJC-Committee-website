@@ -17,6 +17,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "date" }
       - { label: "Bulletin PDF", name: "file", widget: "file" }
+      - { label: "Second PDF (optional)", name: "file2", widget: "file", required: false }
 
   - name: "announcements"
     label: "Announcements"
