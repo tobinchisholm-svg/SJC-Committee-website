@@ -1,0 +1,75 @@
+name: Cleanup Old Bulletins
+
+on:
+  push:
+    paths:
+      - 'bulletins/**'
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Delete old bulletins and uploads
+        run: |
+          cd bulletins
+          
+          # Get all bulletin files sorted by date (newest first)
+          files=($(ls -t *.md 2>/dev/null))
+          
+          if [ ${#files[@]} -le 1 ]; then
+            echo "Only one bulletin, nothing to delete"
+            exit 0
+          fi
+          
+          # Keep the newest, delete the rest
+          newest="${files[0]}"
+          echo "Keeping: $newest"
+          
+          for file in "${files[@]:1}"; do
+            echo "Deleting bulletin: $file"
+            
+            # Extract file paths from the markdown frontmatter
+            file1=$(grep "^file:" "$file" | sed 's/file: //')
+            file2=$(grep "^file2:" "$file" | sed 's/file2: //')
+            
+            # Delete the upload files if they exist
+            if [ -n "$file1" ]; then
+              filepath="..$file1"
+              if [ -f "$filepath" ]; then
+                git rm -f "$filepath"
+                echo "Deleted upload: $filepath"
+              fi
+            fi
+            
+            if [ -n "$file2" ]; then
+              filepath="..$file2"
+              if [ -f "$filepath" ]; then
+                git rm -f "$filepath"
+                echo "Deleted upload: $filepath"
+              fi
+            fi
+            
+            # Delete the bulletin md file
+            git rm -f "$file"
+          done
+          
+          cd ..
+          
+          # Commit if there are changes
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Auto-cleanup: removed old bulletins"
+            git push
+          else
+            echo "Nothing to commit"
+          fi
