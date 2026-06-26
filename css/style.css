@@ -883,6 +883,13 @@ footer {
     height: auto;
     display: block;
 }
+#img-old-church,
+#img-old-church-interior {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+}
 
 /* =====================
    GIVING PAGE
