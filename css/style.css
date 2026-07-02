@@ -1294,6 +1294,26 @@ footer {
     }
 }
 
+/* =============================================
+   KOC — ACTIVITIES GRID 4TH CARD CENTERED
+   ============================================= */
+
+.koc-activities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.koc-fourth-card {
+    grid-column: 2;
+}
+
+@media (max-width: 768px) {
+    .koc-fourth-card {
+        grid-column: 1;
+    }
+}
+
 /* =====================
    SACRAMENTS PAGE
 ===================== */
